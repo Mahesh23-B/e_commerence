@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ShopEase - Your Style Destination</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+    /* Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background-color: #2b2d42;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      color: #edf2f4;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+    }
+
+    nav ul li a {
+      font-weight: 500;
+      font-size: 1rem;
+      color: #edf2f4;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav ul li a:hover,
+    nav ul li a:focus {
+      background-color: #8d99ae;
+      color: white;
+    }
+
+    main {
+      flex-grow: 1;
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #2b2d42 0%, #8d99ae 100%);
+      color: white;
+      border-radius: 12px;
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+      margin-bottom: 60px;
+      box-shadow: 0 8px 16px rgba(43,45,66,0.6);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.1;
+      max-width: 600px;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 560px;
+      font-weight: 300;
+    }
+
+    .hero .btn-primary {
+      background-color: #ef233c;
+      color: white;
+      font-weight: 600;
+      padding: 14px 32px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 10px rgba(239,35,60,0.6);
+      align-self: center;
+      max-width: 200px;
+      text-align: center;
+    }
+
+    .hero .btn-primary:hover,
+    .hero .btn-primary:focus {
+      background-color: #d90429;
+      box-shadow: 0 6px 14px rgba(217,4,41,0.8);
+    }
+
+    /* Products Section */
+    h2.section-title {
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 24px;
+      color: #2b2d42;
+      text-align: center;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+      margin-bottom: 60px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .product-card:hover,
+    .product-card:focus-within {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+    }
+
+    .product-image {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+    }
+
+    .product-info {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-name {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: #2b2d42;
+    }
+
+    .product-price {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #ef233c;
+      margin-bottom: 16px;
+      margin-top: auto;
+    }
+
+    .btn-buy {
+      background-color: #8d99ae;
+      color: #2b2d42;
+      border: none;
+      border-radius: 24px;
+      padding: 12px 24px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-align: center;
+    }
+
+    .btn-buy:hover,
+    .btn-buy:focus {
+      background-color: #6c7284;
+      color: white;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #2b2d42;
+      color: #edf2f4;
+      text-align: center;
+      padding: 24px 20px;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .hero .btn-primary {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">ShopEase</div>
+    <nav aria-label="Primary Navigation">
+      <ul>
+        <li><a href="#" tabindex="0">Home</a></li>
+        <li><a href="#" tabindex="0">Shop</a></li>
+        <li><a href="#" tabindex="0">About</a></li>
+        <li><a href="#" tabindex="0">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Promotional Hero Section">
+      <h1>Discover Your Style with ShopEase</h1>
+      <p>Your one-stop destination for trendy fashion and accessories.</p>
+      <a href="#products" class="btn-primary" tabindex="0">Shop Now</a>
+    </section>
+
+    <section id="products" aria-label="Featured Products">
+      <h2 class="section-title">Featured Products</h2>
+      <div class="products-grid">
+        <article class="product-card" tabindex="0" aria-label="Red Stylish Sneakers">
+          <img
+            src="https://www.google.com/imgres?q=redtape%20sneakers&imgurl=http%3A%2F%2Fredtape.com%2Fcdn%2Fshop%2Ffiles%2FRSL0315_1.jpg%3Fv%3D1748078201&imgrefurl=https%3A%2F%2Fredtape.com%2Fproducts%2Fredtape-casual-sneaker-shoes-for-men-comfort-style-and-performance-1&docid=3peUi810XjvYUM&tbnid=Mg7jlKCOUZkhjM&vet=12ahUKEwjG7L_9ktWNAxV8umMGHZqSMY8QM3oECEEQAA..i&w=1500&h=1500&hcb=2&ved=2ahUKEwjG7L_9ktWNAxV8umMGHZqSMY8QM3oECEEQAA.jpeg"
+            alt="Red stylish sneakers"
+            class="product-image"
+            loading="lazy"
+          />
+          <div class="product-info">
+            <h3 class="product-name">Redtape Sneakers</h3>
+            <div class="product-price">$79.99</div>
+            <button class="btn-buy" aria-label="Buy Redtape Sneakers">Buy Now</button>
+          </div>
+        </article>
+
+        <article class="product-card" tabindex="0" aria-label="Elegant Women's Wristwatch">
+          <img
+            src="https://images.unsplash.com/photo-1519741493036-4b47c430d7dd?auto=format&fit=crop&w=400&q=80"
+            alt="Elegant women's wristwatch"
+            class="product-image"
+            loading="lazy"
+          />
+          <div class="product-info">
+            <h3 class="product-name">Classic Watch</h3>
+            <div class="product-price">$149.00</div>
+            <button class="btn-buy" aria-label="Buy Classic Watch">Buy Now</button>
+          </div>
+        </article>
+
+        <article class="product-card" tabindex="0" aria-label="Black Leather Handbag">
+          <img src="  https://www.google.com/imgres?q=black%20leather%20handbags%20for%20women&imgurl=http%3A%2F%2Fbag-bazar.in%2Fcdn%2Fshop%2Ffiles%2FNRt7Sacs-main-tendance-pour-femmes-sacs-paule-assortis-pour-dames-sacoches-de-grande-capacit-nouvelle-collection.jpg%3Fv%3D1717409643&imgrefurl=https%3A%2F%2Fbag-bazar.in%2Fproducts%2Fluxury-simple-3-layer-womens-handbag-fashion-designer-shoulder-travel-messenger-bag&docid=tghkSkO9gEIQvM&tbnid=dpSq_6LHPNdDeM&vet=12ahUKEwjp99X7k9WNAxUuTGwGHQFbBjgQM3oECGUQAA..i&w=800&h=800&hcb=2&ved=2ahUKEwjp99X7k9WNAxUuTGwGHQFbBjgQM3oECGUQAA"          alt="Black leather handbag"
+            class="product-image"
+            loading="lazy"
+          />
+          <div class="product-info">
+            <h3 class="product-name">Leather Handbag</h3>
+            <div class="product-price">$199.99</div>
+            <button class="btn-buy" aria-label="Buy Leather Handbag">Buy Now</button>
+          </div>
+        </article>
+
+        <article class="product-card" tabindex="0" aria-label="Men's Casual Shirt">
+          <img
+            src="https://images.unsplash.com/photo-1556909190-cd47f8e09b3e?auto=format&fit=crop&w=400&q=80"
+            alt="Men's casual shirt"
+            class="product-image"
+            loading="lazy"
+          />
+          <div class="product-info">
+            <h3 class="product-name">Casual Shirt</h3>
+            <div class="product-price">$59.99</div>
+            <button class="btn-buy" aria-label="Buy Casual Shirt">Buy Now</button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2024 ShopEase. All rights reserved. &nbsp;|&nbsp; <a href="#" style="color:#ef233c;">Privacy Policy</a> &nbsp;|&nbsp; <a href="#" style="color:#ef233c;">Terms of Service</a>
+  </footer>
+</body>
+</html>
+
